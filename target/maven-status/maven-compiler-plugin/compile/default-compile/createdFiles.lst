@@ -1,0 +1,10 @@
+pro\mynook\app\config\MvcConfig.class
+pro\mynook\app\dao\BookDao.class
+pro\mynook\app\dto\Book.class
+pro\mynook\app\config\DaoConfig.class
+pro\mynook\app\web\MyNookWebAppInitializer.class
+pro\mynook\app\config\MainConfig.class
+pro\mynook\app\controller\BookController.class
+pro\mynook\app\config\PropertyConfig.class
+pro\mynook\app\dao\BookDao$1.class
+pro\mynook\app\config\ControllerConfig.class
