@@ -1,12 +1,10 @@
 package pro.mynook.app.controller;
 
 import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import pro.mynook.app.dao.BookDao;
 import pro.mynook.app.dto.Book;
+import pro.mynook.app.dto.BookGetRequest;
 
 import javax.annotation.Nonnull;
 import java.util.List;
@@ -25,8 +23,8 @@ public class BookController {
     }
 
     @PostMapping(path = "get",  produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<Book> get() {
-        return bookDao.get();
+    public List<Book> get(@RequestBody final BookGetRequest request) {
+        return bookDao.get(request.getId());
     }
 
 }

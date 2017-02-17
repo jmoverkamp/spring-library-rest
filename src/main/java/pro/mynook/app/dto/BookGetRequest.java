@@ -6,32 +6,22 @@ import org.apache.commons.lang3.builder.HashCodeBuilder;
 /**
  * Created by Jaxichael on 2/16/2017.
  */
-public class Book {
-    private String id;
-    private String title;
+public class BookGetRequest {
+    private Integer id;
 
-    public Book() {
+    public BookGetRequest() {
     }
 
-    public Book(String id, String title) {
+    public BookGetRequest(Integer id) {
         this.id = id;
-        this.title = title;
     }
 
-    public String getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Integer id) {
         this.id = id;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
     }
 
     @Override
@@ -40,11 +30,10 @@ public class Book {
 
         if (o == null || getClass() != o.getClass()) return false;
 
-        Book book = (Book) o;
+        BookGetRequest that = (BookGetRequest) o;
 
         return new EqualsBuilder()
-                .append(id, book.id)
-                .append(title, book.title)
+                .append(id, that.id)
                 .isEquals();
     }
 
@@ -52,7 +41,6 @@ public class Book {
     public int hashCode() {
         return new HashCodeBuilder(17, 37)
                 .append(id)
-                .append(title)
                 .toHashCode();
     }
 }
