@@ -48,14 +48,14 @@ INSERT INTO book (book_id, title) VALUES ('7', 'Name With Silver');
 INSERT INTO book (book_id, title) VALUES ('8', 'Drinking At Dreams');
 INSERT INTO book (book_id, title) VALUES ('9', 'Lion Of The Lost Ones');
 
-INSERT INTO owner_book (owner_id, book_id) VALUES ('1', '1');
-INSERT INTO owner_book (owner_id, book_id) VALUES ('1', '2');
-INSERT INTO owner_book (owner_id, book_id) VALUES ('1', '3');
-INSERT INTO owner_book (owner_id, book_id) VALUES ('1', '4');
-INSERT INTO owner_book (owner_id, book_id) VALUES ('1', '5');
-INSERT INTO owner_book (owner_id, book_id) VALUES ('1', '6');
-INSERT INTO owner_book (owner_id, book_id) VALUES ('1', '7');
-INSERT INTO owner_book (owner_id, book_id) VALUES ('1', '8');
+INSERT INTO owner_book (owner_id, book_id) VALUES ('10212300184566291', '1');
+INSERT INTO owner_book (owner_id, book_id) VALUES ('10212300184566291', '2');
+INSERT INTO owner_book (owner_id, book_id) VALUES ('10212300184566291', '3');
+INSERT INTO owner_book (owner_id, book_id) VALUES ('10212300184566291', '4');
+INSERT INTO owner_book (owner_id, book_id) VALUES ('10212300184566291', '5');
+INSERT INTO owner_book (owner_id, book_id) VALUES ('10212300184566291', '6');
+INSERT INTO owner_book (owner_id, book_id) VALUES ('10212300184566291', '7');
+INSERT INTO owner_book (owner_id, book_id) VALUES ('10212300184566291', '8');
 
 -- Selects all books owned or wishlisted by a user
 SELECT b.title, bs.status_value
