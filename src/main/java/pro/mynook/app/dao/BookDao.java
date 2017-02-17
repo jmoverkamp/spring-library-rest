@@ -14,7 +14,6 @@ import java.util.List;
  * Created by Jaxichael on 2/16/2017.
  */
 public class BookDao {
-    @Nonnull
     private final NamedParameterJdbcOperations jdbcOperations;
 
     private static final String GET_BOOKS = "SELECT p.first_name, b.title " +
@@ -27,17 +26,17 @@ public class BookDao {
         this.jdbcOperations = jdbcOperations;
     }
 
-    @Nonnull
-    public List<Book> get(int id) {
-        RowMapper<Book> rowMapper = new RowMapper<Book>() {
-            @Override
-            public Book mapRow(ResultSet rs, int rowNum) throws SQLException {
-                return new Book(rs.getString("first_name"), rs.getString("title"));
-            }
+    public Book getBook(int bookId) { return null;}
+
+    public List<Book> getBooks(int personId) {
+        RowMapper<Book> rowMapper = (ResultSet rs, int rowNum) -> {
+            return new Book(rs.getString("first_name"), rs.getString("title"));
         };
-        ImmutableMap<String, Object> map = ImmutableMap.of(
-                "id", id
-        );
-        return jdbcOperations.query(GET_BOOKS, map, rowMapper);
+
+        return jdbcOperations.query(GET_BOOKS, ImmutableMap.of(
+                "id", personId
+        ), rowMapper);
     }
+
+    public int addBook(Book book) {return -1;}
 }

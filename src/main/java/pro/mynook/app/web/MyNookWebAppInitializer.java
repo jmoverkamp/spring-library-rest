@@ -19,6 +19,6 @@ public class MyNookWebAppInitializer extends AbstractAnnotationConfigDispatcherS
 
     @Override
     protected String[] getServletMappings() {
-        return new String[]{"/secure/jas/*"};
+        return new String[]{"/mynook/v1/*"};
     }
 }

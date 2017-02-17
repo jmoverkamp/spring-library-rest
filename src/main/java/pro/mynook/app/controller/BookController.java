@@ -13,7 +13,7 @@ import java.util.List;
  * Created by Jaxichael on 2/16/2017.
  */
 @RestController
-@RequestMapping("book")
+@RequestMapping("api/book")
 public class BookController {
     @Nonnull
     private final BookDao bookDao;
@@ -22,9 +22,18 @@ public class BookController {
         this.bookDao = bookDao;
     }
 
-    @PostMapping(path = "get",  produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<Book> get(@RequestBody final BookGetRequest request) {
-        return bookDao.get(request.getId());
+    @PostMapping(path = "getBooks",  produces = MediaType.APPLICATION_JSON_VALUE)
+    public List<Book> getBooks(@RequestBody final BookGetRequest request) {
+        return bookDao.getBooks(request.getId());
     }
 
+    @PostMapping(path = "getBook",  produces = MediaType.APPLICATION_JSON_VALUE)
+    public Book getBook(@RequestBody final BookGetRequest request) {
+        return bookDao.getBook(request.getId());
+    }
+
+    @PostMapping(path = "addBook",  produces = MediaType.APPLICATION_JSON_VALUE)
+    public int addBook(@RequestBody final BookGetRequest request) {
+        return bookDao.addBook(new Book());
+    }
 }
