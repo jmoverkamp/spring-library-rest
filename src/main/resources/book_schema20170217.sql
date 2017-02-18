@@ -58,15 +58,6 @@ INSERT INTO owner_book (owner_id, book_id) VALUES ('10212300184566291', '7');
 INSERT INTO owner_book (owner_id, book_id) VALUES ('10212300184566291', '8');
 
 
-
--- Adds book ownership
-INSERT INTO owner_book (owner_id, book_id, wishlist) 
-VALUES (:ownerId, :bookId, :wishlist);
-
--- Delete a book from ownership
-DELETE FROM owner_book 
-WHERE owner_id = :ownerId AND book_id = :bookId;
-
 -- Moved book from wishlist to collection and vise versa
 UPDATE owner_book SET wishlist = :wishlist 
 WHERE owner_id = :ownerId AND book_id = :bookId

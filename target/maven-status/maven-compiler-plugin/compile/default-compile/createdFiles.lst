@@ -1,8 +1,10 @@
+pro\mynook\app\pojo\BookOwner.class
 pro\mynook\app\dao\BookDao.class
 pro\mynook\app\dto\GetBooksRequest.class
 pro\mynook\app\factory\OwnedBookBuilder.class
 pro\mynook\app\controller\BookControllerInterface.class
 pro\mynook\app\config\PropertyConfig.class
+pro\mynook\app\dto\DeleteBookOwnerRequest.class
 pro\mynook\app\pojo\Book.class
 pro\mynook\app\config\MvcConfig.class
 pro\mynook\app\config\DaoConfig.class

@@ -3,9 +3,11 @@ package pro.mynook.app.controller;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import pro.mynook.app.dao.BookDao;
+import pro.mynook.app.dto.DeleteBookOwnerRequest;
 import pro.mynook.app.pojo.Book;
 import pro.mynook.app.dto.GetBooksRequest;
 import pro.mynook.app.dto.OwnedBook;
+import pro.mynook.app.pojo.BookOwner;
 
 import javax.annotation.Nonnull;
 import java.util.List;
@@ -33,6 +35,18 @@ public class BookController implements BookControllerInterface {
     @PostMapping(path = "addBook",  produces = MediaType.APPLICATION_JSON_VALUE)
     public Integer addBook(@RequestBody final Book request) {
         return bookDao.addBook(request);
+    }
+
+    @Override
+    @PostMapping(path = "deleteBookOwner",  produces = MediaType.APPLICATION_JSON_VALUE)
+    public Integer deleteBookOwner(@RequestBody DeleteBookOwnerRequest request) {
+        return bookDao.deleteBookOwner(request.getOwnerId(), request.getBookId());
+    }
+
+    @Override
+    @PostMapping(path = "addBookOwner",  produces = MediaType.APPLICATION_JSON_VALUE)
+    public Integer addBookOwner(@RequestBody BookOwner request) {
+        return bookDao.addBookOwner(request);
     }
 
 //    @PostMapping(path = "getBook",  produces = MediaType.APPLICATION_JSON_VALUE)
