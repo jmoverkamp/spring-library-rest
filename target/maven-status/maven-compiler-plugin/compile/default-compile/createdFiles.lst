@@ -13,5 +13,7 @@ pro\mynook\app\web\MyNookWebAppInitializer.class
 pro\mynook\app\config\MainConfig.class
 pro\mynook\app\controller\BookController.class
 pro\mynook\app\dto\OwnedBook.class
+pro\mynook\app\pojo\RequestError.class
+pro\mynook\app\controller\advice\GlobalExceptionHandler.class
 pro\mynook\app\dao\BookDaoInterface.class
 pro\mynook\app\config\ControllerConfig.class
