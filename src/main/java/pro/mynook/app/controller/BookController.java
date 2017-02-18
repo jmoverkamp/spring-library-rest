@@ -3,8 +3,9 @@ package pro.mynook.app.controller;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import pro.mynook.app.dao.BookDao;
-import pro.mynook.app.dto.Book;
-import pro.mynook.app.dto.BookGetRequest;
+import pro.mynook.app.pojo.Book;
+import pro.mynook.app.dto.GetBooksRequest;
+import pro.mynook.app.dto.OwnedBook;
 
 import javax.annotation.Nonnull;
 import java.util.List;
@@ -14,7 +15,7 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("api/book")
-public class BookController {
+public class BookController implements BookControllerInterface {
     @Nonnull
     private final BookDao bookDao;
 
@@ -22,18 +23,25 @@ public class BookController {
         this.bookDao = bookDao;
     }
 
+    @Override
     @PostMapping(path = "getBooks",  produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<Book> getBooks(@RequestBody final BookGetRequest request) {
-        return bookDao.getBooks(request.getId());
+    public List<OwnedBook> getBooks(@RequestBody final GetBooksRequest request) {
+        return bookDao.getBooks(request.getOwnerId(), request.getWishlist());
     }
 
-    @PostMapping(path = "getBook",  produces = MediaType.APPLICATION_JSON_VALUE)
-    public Book getBook(@RequestBody final BookGetRequest request) {
-        return bookDao.getBook(request.getId());
-    }
-
+    @Override
     @PostMapping(path = "addBook",  produces = MediaType.APPLICATION_JSON_VALUE)
-    public int addBook(@RequestBody final BookGetRequest request) {
-        return bookDao.addBook(new Book());
+    public Integer addBook(@RequestBody final Book request) {
+        return bookDao.addBook(request);
     }
+
+//    @PostMapping(path = "getBook",  produces = MediaType.APPLICATION_JSON_VALUE)
+//    public Book getBook(@RequestBody final GetBooksRequest request) {
+//        return bookDao.getBook(request.getId());
+//    }
+
+//    @PostMapping(path = "addBook",  produces = MediaType.APPLICATION_JSON_VALUE)
+//    public int addBook(@RequestBody final GetBooksRequest request) {
+//        return bookDao.addBook(new Book());
+//    }
 }

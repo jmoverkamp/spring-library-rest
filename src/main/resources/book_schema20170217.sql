@@ -57,18 +57,7 @@ INSERT INTO owner_book (owner_id, book_id) VALUES ('10212300184566291', '6');
 INSERT INTO owner_book (owner_id, book_id) VALUES ('10212300184566291', '7');
 INSERT INTO owner_book (owner_id, book_id) VALUES ('10212300184566291', '8');
 
--- Selects all books owned or wishlisted by a user
-SELECT b.title, bs.status_value
-FROM owner_book ob
-    JOIN book_status bs
-        ON ob.status_id = bs.status_id
-    JOIN book b
-        ON ob.book_id = b.book_id
-WHERE ob.owner_id = :ownerId AND ob.wishlist = :wishlist;
 
--- Adds a new book to the repo
-INSERT INTO book (book_id, isbn_10, isbn_13, title, authors, publisher, published_date, page_count, thumbnail)
-VALUES (:bookId, :isbn10, :isbn13, :title, :authors, :publisher, :publishedDate, :pageCount, :thumbnail);
 
 -- Adds book ownership
 INSERT INTO owner_book (owner_id, book_id, wishlist) 
@@ -82,9 +71,7 @@ WHERE owner_id = :ownerId AND book_id = :bookId;
 UPDATE owner_book SET wishlist = :wishlist 
 WHERE owner_id = :ownerId AND book_id = :bookId
 
--- Get status
-SELECT status_value
-FROM book_status;
+
 
 -- Set a book rating
 UPDATE owner_book SET rating = :rating 
