@@ -16,6 +16,7 @@ import java.util.List;
  * Created by Jaxichael on 2/16/2017.
  */
 @RestController
+@CrossOrigin
 @RequestMapping("api/book")
 public class BookController implements BookControllerInterface {
     @Nonnull
