@@ -43,8 +43,18 @@ public class BookDao implements BookDaoInterface {
     public List<OwnedBook> getBooks(String ownerId, Boolean wishlist) {
         RowMapper<OwnedBook> rowMapper = (ResultSet rs, int rowNum) -> {
             return new OwnedBookBuilder()
+                    .setBookId(rs.getString("book_id"))
+                    .setIsbn10(rs.getString("isbn_10"))
+                    .setIsbn13(rs.getString("isbn_13"))
                     .setTitle(rs.getString("title"))
+                    .setAuthors(rs.getString("authors"))
+                    .setPublisher(rs.getString("publisher"))
+                    .setPublishedDate(rs.getString("published_date"))
+                    .setPageCount(rs.getInt("page_count"))
+                    .setThumbnail(rs.getString("thumbnail"))
                     .setStatusValue(rs.getString("status_value"))
+                    .setWishlist(rs.getString("wishlist"))
+                    .setRating(rs.getInt("rating"))
                     .build();
         };
         ImmutableMap<String, Object> mapping = ImmutableMap.of(

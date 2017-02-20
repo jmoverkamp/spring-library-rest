@@ -32,12 +32,15 @@ CREATE TABLE owner_book (
   FOREIGN KEY (book_id) REFERENCES book(book_id)
 );
 
+-- Required inserts
 INSERT INTO book_status (status_id, status_value) VALUES ('0', 'Unread');
 INSERT INTO book_status (status_id, status_value) VALUES ('1', 'In Progress');
 INSERT INTO book_status (status_id, status_value) VALUES ('2', 'Read');
 INSERT INTO book_status (status_id, status_value) VALUES ('3', 'On Hold');
 INSERT INTO book_status (status_id, status_value) VALUES ('4', 'Abandoned');
 
+
+-- Sample data
 INSERT INTO book (book_id, title) VALUES ('1', 'Enemy Of The Nation');
 INSERT INTO book (book_id, title) VALUES ('2', 'Robot Of The Plague');
 INSERT INTO book (book_id, title) VALUES ('3', 'Officers Without Time');
