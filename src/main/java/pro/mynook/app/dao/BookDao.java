@@ -18,7 +18,7 @@ import java.util.List;
 public class BookDao implements BookDaoInterface {
     private final NamedParameterJdbcOperations jdbcOperations;
 
-    private static final String GET_BOOKS = "SELECT b.title, bs.status_value\n" +
+    private static final String GET_BOOKS = "SELECT *\n" +
             "FROM owner_book ob\n" +
             "    JOIN book_status bs\n" +
             "        ON ob.status_id = bs.status_id\n" +
