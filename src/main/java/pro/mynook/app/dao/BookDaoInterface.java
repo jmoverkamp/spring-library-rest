@@ -1,5 +1,6 @@
 package pro.mynook.app.dao;
 
+import pro.mynook.app.dto.BookOwnerRequest;
 import pro.mynook.app.dto.GetBooksRequest;
 import pro.mynook.app.dto.OwnedBook;
 import pro.mynook.app.pojo.Book;
@@ -15,4 +16,5 @@ public interface BookDaoInterface {
     Integer addBook(Book request);
     Integer deleteBookOwner(String ownerId, String bookId);
     Integer addBookOwner(BookOwner request);
+    Integer updateBookOwner(BookOwnerRequest request);
 }

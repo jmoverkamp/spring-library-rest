@@ -1,5 +1,6 @@
 package pro.mynook.app.controller;
 
+import pro.mynook.app.dto.BookOwnerRequest;
 import pro.mynook.app.dto.DeleteBookOwnerRequest;
 import pro.mynook.app.pojo.Book;
 import pro.mynook.app.dto.GetBooksRequest;
@@ -16,4 +17,5 @@ public interface BookControllerInterface {
     Integer addBook(Book request);
     Integer deleteBookOwner(DeleteBookOwnerRequest request);
     Integer addBookOwner(BookOwner request);
+    Integer updateBookOwner(BookOwnerRequest request);
 }
